@@ -1,16 +1,17 @@
-import { Box, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import React from 'react'
+import Grid from '@mui/material/Grid2';
 
 const Header = () => {
     return (
-        <div style={{ display: "flex" }}>
-            <Box sx={{width: "19vw", padding: "10px"}}>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid size={{ xs: 4, sm: 8, md: 3 }} sx={{padding: "5px 10px"}}>
                 <Typography sx={{ color: "#12bfe6", textAlign: "center", fontSize: "14px", fontWeight: "bold" }}>Company Logo</Typography>
-            </Box>
-            <Box sx={{width: "81vw", padding: "10px", backgroundColor: "#1d3254"}}>
+            </Grid>
+            <Grid size={{ xs: 4, sm: 8, md: 9 }} sx={{ backgroundColor: "#1d3254", padding: "5px 10px" }}>
                 <Typography sx={{ color: "white", fontSize: "14px", fontWeight: "bold" }}>Overall Equipment Effectiveness Dashboard</Typography>
-            </Box>
-        </div>
+            </Grid>
+        </Grid>
     )
 }
 

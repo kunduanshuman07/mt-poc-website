@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import Grid from '@mui/material/Grid2';
 import React, { useEffect, useState } from 'react'
 import TimeAccount from './TimeAccount'
 import CombChart from './CombChart'
@@ -41,11 +41,11 @@ const BottomContent = () => {
     }, [startDateFilter, endDateFilter])
 
     return (
-        <Grid container columnSpacing={1} sx={{ padding: "0px 10px", display: "flex" }}>
-            <Grid item md={3.8}>
+        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ padding: "0px 10px", marginTop: "5px" }}>
+            <Grid size={{ xs: 4, sm: 8, md: 4 }}>
                 <TimeAccount />
             </Grid>
-            <Grid item md={8.1} sx={{ marginLeft: "auto", marginTop: "0px" }}>
+            <Grid size={{ xs: 4, sm: 8, md: 8 }} >
                 <CombChart time_stamp={timeStamps} temperature={temperatures} sensor={sensor} other={other} />
             </Grid>
         </Grid>

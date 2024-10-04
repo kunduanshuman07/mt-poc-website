@@ -1,14 +1,14 @@
 import React from 'react'
-import Grid  from '@mui/material/Grid'
+import Grid from '@mui/material/Grid2';
 import headerTextfieldprops from '../props'
 import HeaderTextField from "./HeaderTextField"
 
 const HeaderGrid = () => {
   return (
-    <Grid container sx={{padding: "8px 10px 0px 10px" }}>
+    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{padding: "10px"}}>
       {
         headerTextfieldprops.map((prop, index) => (
-          <Grid item md={2.4} key={index}>
+          <Grid key={index} size={{ xs: 2, sm: 4, md: 2.4 }}>
             <HeaderTextField title={prop.title} key={index} selected={prop.selected} type={prop.type} selectionData={prop.selectionMenu}/>
           </Grid>
         ))

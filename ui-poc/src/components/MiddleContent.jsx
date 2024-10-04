@@ -1,28 +1,22 @@
-import { Grid, Box } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import React from 'react';
-import KeyPerformance from './KeyPerformance';
 import ProductionRate from './ProductionRate';
 import Availability from './Availability';
+import KeyPerformance from './KeyPerformance';
 
 const MiddleContent = () => {
     return (
-        <Grid container columnSpacing={0} rowSpacing={0} sx={{}}>
-            <Grid item xs={8}>
-                <Box sx={{ padding: '10px' }}>
-                    <KeyPerformance />
-                </Box>
+        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ padding: "0px 10px" }}>
+            <Grid size={{ xs: 4, sm: 8, md: 8 }}>
+                <KeyPerformance />
             </Grid>
-            <Grid item xs={4}>
-                <Grid container direction="column" rowSpacing={0}>
-                    <Grid item md={12}>
-                        <Box sx={{ padding: '10px' }}>
-                            <ProductionRate />
-                        </Box>
+            <Grid size={{ xs: 4, sm: 8, md: 4 }}>
+                <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                    <Grid size={{ xs: 4, sm: 8, md: 12 }}>
+                        <ProductionRate />
                     </Grid>
-                    <Grid item md={12}>
-                        <Box sx={{ padding: '10px' }}>
-                            <Availability />
-                        </Box>
+                    <Grid size={{ xs: 4, sm: 8, md: 12 }}>
+                        <Availability />
                     </Grid>
                 </Grid>
             </Grid>
