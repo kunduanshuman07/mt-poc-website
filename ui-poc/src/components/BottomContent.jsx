@@ -18,16 +18,15 @@ const BottomContent = () => {
             const data = res?.data || [];
             const startDate = startDateFilter ? new Date(startDateFilter) : null;
             const endDate = endDateFilter ? new Date(endDateFilter) : null;
-            const filteredData = startDate
-                ? data.filter(item => {
-                    const [day, month, year] = item.time_stamp.split(" ")[0].split("-");
-                    const timePart = item.time_stamp.split(" ")[1];
-                    const formattedDate = new Date(`${year}-${month}-${day}T${timePart}`);
-                    const afterStartDate = !startDate || formattedDate >= startDate;
-                    const beforeEndDate = !endDate || formattedDate <= endDate;
-                    return afterStartDate && beforeEndDate;
-                })
-                : data;
+            const filteredData = data.filter(item => {
+                const [day, month, year] = item.time_stamp.split(" ")[0].split("-");
+                const timePart = item.time_stamp.split(" ")[1];
+                const formattedDate = new Date(`${year}-${month}-${day}T${timePart}`);
+                const afterStartDate = !startDate || formattedDate >= startDate;
+                const beforeEndDate = !endDate || formattedDate <= endDate;
+                return afterStartDate && beforeEndDate;
+            });
+            
 
             setTimeStamps(filteredData.map(item => item.time_stamp.split(" ")[1]));
             setTemperatures(filteredData.map(item => parseFloat(item.temperature)));
