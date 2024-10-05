@@ -1,8 +1,8 @@
-import { Box, MenuItem, TextField, Typography } from '@mui/material'
+import { Box, MenuItem, TextField, Typography,} from '@mui/material'
 import React from 'react'
 import { useFilter } from "../context/FilterProvider"
 
-const HeaderTextField = ({ title, selectionData, selected, type }) => {
+const HeaderTextField = ({ title, selectionData, type }) => {
     const { startDateFilter, endDateFilter, setStartDateFilter, setEndDateFilter } = useFilter();
     return (
         <div>
@@ -14,7 +14,6 @@ const HeaderTextField = ({ title, selectionData, selected, type }) => {
                         size='small'
                         fullWidth={false}
                         select
-                        value={selected}
                     >
                         {selectionData?.map((option) => (
                             <MenuItem key={option.value} value={option.value}>

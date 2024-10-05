@@ -1,9 +1,10 @@
 import React from 'react'
-import { Box, LinearProgress, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid2';
 import ProgressCircular from '../components/ProgressCircular';
 import SmallProgressGrid from '../components/SmallProgressGrid';
 import QuantityGridItem from '../components/QuantityGridItem';
+import ThreeStageLinearProgress from '../components/ThreeStageLinearProgress';
 
 const KeyPerformance = () => {
     return (
@@ -14,12 +15,12 @@ const KeyPerformance = () => {
                     <ProgressCircular type={2} percentage={65} category={"OEE"} />
                 </Box>
             </Grid>
-            <Grid size={{ xs: 4, sm: 8, md: 9 }} sx={{display: "flex", flexDirection: "column"}}>
+            <Grid size={{ xs: 4, sm: 8, md: 9 }} sx={{ display: "flex", flexDirection: "column" }}>
                 <SmallProgressGrid />
-                <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ marginTop: "5px", padding: "4px 20px" }}>
-                    <Grid size={{ xs: 4, sm: 8, md: 12 }}>
-                        <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "14px" }}>Product Quantity</Typography>
-                        <LinearProgress value={80} variant='determinate' sx={{ height: "10px", borderRadius: "1px", marginTop: "2px" }} />
+                <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ marginTop: "0px", padding: "0px 20px" }}>
+                    <Grid size={{ xs: 4, sm: 8, md: 12 }} sx={{display: "flex", flexDirection: "column"}}>
+                        <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "12px" }}>Product Quantity</Typography>
+                        <ThreeStageLinearProgress actual={9448} expected={8685} target={27000} total={30000}/>
                     </Grid>
                     <QuantityGridItem title={'Actual Quantity'} quantity={9448} />
                     <QuantityGridItem title={'Expected Quantity'} quantity={8685} />
