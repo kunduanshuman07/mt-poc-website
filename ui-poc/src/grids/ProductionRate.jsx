@@ -1,6 +1,6 @@
 import React from 'react'
 import { Typography } from '@mui/material'
-import DoghnutChart from './DoghnutChart'
+import DoghnutChart from '../components/DoghnutChart'
 import Grid from '@mui/material/Grid2';
 
 const ProductionRate = () => {

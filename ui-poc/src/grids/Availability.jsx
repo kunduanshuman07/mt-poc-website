@@ -1,5 +1,5 @@
 import React from 'react'
-import LossItems from './LossItems'
+import LossItems from '../components/LossItems'
 
 const Availability = () => {
   return (

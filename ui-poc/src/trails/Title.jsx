@@ -2,7 +2,7 @@ import { Typography } from '@mui/material'
 import React from 'react'
 import Grid from '@mui/material/Grid2';
 
-const Header = () => {
+const Title = () => {
     return (
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             <Grid size={{ xs: 4, sm: 8, md: 3 }} sx={{padding: "5px 10px"}}>
@@ -15,4 +15,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Title

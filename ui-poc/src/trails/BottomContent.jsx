@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid2';
 import React, { useEffect, useState } from 'react'
-import TimeAccount from './TimeAccount'
-import CombChart from './CombChart'
+import TimeAccount from '../grids/TimeAccount'
+import CombChart from '../grids/CombChart'
 import axios from "axios";
 import { useFilter } from "../context/FilterProvider"
 

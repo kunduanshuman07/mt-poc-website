@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid2';
 import React from 'react';
-import ProductionRate from './ProductionRate';
-import Availability from './Availability';
-import KeyPerformance from './KeyPerformance';
+import ProductionRate from '../grids/ProductionRate';
+import Availability from '../grids/Availability';
+import KeyPerformance from '../grids/KeyPerformance';
 
 const MiddleContent = () => {
     return (

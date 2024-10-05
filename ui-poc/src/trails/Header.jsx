@@ -1,9 +1,9 @@
 import React from 'react'
 import Grid from '@mui/material/Grid2';
 import headerTextfieldprops from '../props'
-import HeaderTextField from "./HeaderTextField"
+import HeaderTextField from "../components/HeaderTextField"
 
-const HeaderGrid = () => {
+const Header = () => {
   return (
     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 4, md: 12 }} sx={{padding: "10px"}}>
       {
@@ -17,4 +17,4 @@ const HeaderGrid = () => {
   )
 }
 
-export default HeaderGrid
+export default Header

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, LinearProgress, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid2';
-import ProgressCircular from './ProgressCircular';
-import SmallProgressGrid from './SmallProgressGrid';
-import QuantityGridItem from './QuantityGridItem';
+import ProgressCircular from '../components/ProgressCircular';
+import SmallProgressGrid from '../components/SmallProgressGrid';
+import QuantityGridItem from '../components/QuantityGridItem';
 
 const KeyPerformance = () => {
     return (

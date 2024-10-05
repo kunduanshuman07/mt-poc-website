@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import React from 'react'
-import TimeAccountBox from './TimeAccountBox'
+import TimeAccountBox from '../components/TimeAccountBox'
 
 const TimeAccount = () => {
   return (

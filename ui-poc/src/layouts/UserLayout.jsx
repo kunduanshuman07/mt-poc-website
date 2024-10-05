@@ -1,14 +1,14 @@
 import React from 'react'
-import HeaderGrid from '../components/HeaderGrid'
-import Header from '../components/Header'
-import MiddleContent from '../components/MiddleContent'
-import BottomContent from '../components/BottomContent'
+import Header from '../trails/Header'
+import Title from '../trails/Title'
+import MiddleContent from '../trails/MiddleContent'
+import BottomContent from '../trails/BottomContent'
 
 const UserLayout = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
+      <Title />
       <Header />
-      <HeaderGrid />
       <MiddleContent />
       <BottomContent/>
     </div>
