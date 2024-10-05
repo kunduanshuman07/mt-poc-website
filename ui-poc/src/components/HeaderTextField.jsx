@@ -23,7 +23,7 @@ const HeaderTextField = ({ title, selectionData, selected, type }) => {
                         ))}
                     </TextField> :
                     <TextField
-                        type='date'
+                        type='datetime-local'
                         size='small'
                         fullWidth={false}
                         value={title === "Start Time" ? startDateFilter : endDateFilter}

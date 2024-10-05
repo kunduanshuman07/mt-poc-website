@@ -21,14 +21,11 @@ const BottomContent = () => {
             const filteredData = startDate
                 ? data.filter(item => {
                     const [day, month, year] = item.time_stamp.split(" ")[0].split("-");
-                    const formattedDate = new Date(`${year}-${month}-${day}`);
+                    const timePart = item.time_stamp.split(" ")[1];
+                    const formattedDate = new Date(`${year}-${month}-${day}T${timePart}`);
                     const afterStartDate = !startDate || formattedDate >= startDate;
                     const beforeEndDate = !endDate || formattedDate <= endDate;
                     return afterStartDate && beforeEndDate;
-
-                    // use this when time is incouded in datetimefilters
-                    // const timePart = item.time_stamp.split(" ")[1];
-                    // const formattedDate = new Date(`${year}-${month}-${day}T${timePart}`);
                 })
                 : data;
 
