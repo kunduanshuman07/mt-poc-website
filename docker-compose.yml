@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend-poc
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOSTNAME: 'db' 
+      DB_USER: 'root'
+      DB_PASSWORD: 'Chef@coding7'
+      DB_DATABASE: 'poc'
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'Chef@coding7'
+      MYSQL_DATABASE: 'poc'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'Chef@coding7'
+
+  frontend:
+    build:
+      context: ./ui-poc
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
