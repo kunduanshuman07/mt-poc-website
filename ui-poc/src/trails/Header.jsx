@@ -9,7 +9,7 @@ const Header = () => {
       {
         headerTextfieldprops.map((prop, index) => (
           <Grid key={index} size={{ xs: 2, sm: 4, md: 2.4 }}>
-            <HeaderTextField title={prop.title} key={index} selected={prop.selected} type={prop.type} selectionData={prop.selectionMenu}/>
+            <HeaderTextField title={prop.title} key={index} type={prop.type} selectionData={prop.selectionMenu}/>
           </Grid>
         ))
       }

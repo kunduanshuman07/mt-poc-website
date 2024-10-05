@@ -2,7 +2,6 @@ const headerTextfieldprops = [
     {
         title: "Select Area",
         values: "",
-        selected: "ProdLine01",
         type: 1,
         selectionMenu: [
             {
@@ -27,7 +26,6 @@ const headerTextfieldprops = [
     {
         title: "Select Unit",
         values: "",
-        selected: "All Units",
         type: 1,
         selectionMenu: [
             {
@@ -52,7 +50,6 @@ const headerTextfieldprops = [
     {
         title: "Select View",
         values: "",
-        selected: "Yesterday",
         type: 1,
         selectionMenu: [
             {

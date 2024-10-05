@@ -7,7 +7,8 @@ import { useFilter } from "../context/FilterProvider"
 
 const BottomContent = () => {
     const BASE_URL = process.env.REACT_APP_API_URL;
-    const { startDateFilter, endDateFilter } = useFilter();
+    const { startDateFilter, endDateFilter, viewFilter, unitFilter, areaFilter } = useFilter();
+    console.log(viewFilter, unitFilter, areaFilter)
     const [timeStamps, setTimeStamps] = useState([]);
     const [temperatures, setTemperatures] = useState([]);
     const [sensor, setSensor] = useState([])
@@ -37,7 +38,7 @@ const BottomContent = () => {
     }, [startDateFilter, endDateFilter])
 
     return (
-        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ padding: "0px 10px", marginTop: "5px" }}>
+        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ padding: "0px 10px", marginTop: "10px" }}>
             <Grid size={{ xs: 4, sm: 8, md: 4 }}>
                 <TimeAccount />
             </Grid>
