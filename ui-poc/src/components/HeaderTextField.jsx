@@ -2,7 +2,7 @@ import { Box, MenuItem, TextField, Typography, } from '@mui/material'
 import React from 'react'
 import { useFilter } from "../context/FilterProvider"
 
-const HeaderTextField = ({ title, selectionData, type }) => {
+const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
     const { startDateFilter, endDateFilter, setStartDateFilter, setEndDateFilter, setViewFilter, setUnitFilter, setAreaFilter } = useFilter();
     return (
         <div>
@@ -14,7 +14,7 @@ const HeaderTextField = ({ title, selectionData, type }) => {
                         size='small'
                         fullWidth={false}
                         select
-                        defaultValue="EUR"
+                        defaultValue={defaultValue}
                         onChange={(e) => title === "Select Area" ? setAreaFilter(e.target.value) : title === "Select Unit" ? setUnitFilter(e.target.value) : setViewFilter(e.target.value)}
                         sx={{
                             '& .MuiInputBase-root': {
@@ -26,7 +26,7 @@ const HeaderTextField = ({ title, selectionData, type }) => {
                     >
                         {selectionData?.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
-                                {option.label}
+                                {option.value}
                             </MenuItem>
                         ))}
                     </TextField> :

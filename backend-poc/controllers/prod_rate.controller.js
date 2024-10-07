@@ -1,8 +1,9 @@
 import db from "../config/connectDb.js"
 
-export const fetchTimeTemp = async (req, res) => {
+
+export const fetchProdRateValues = async(req,res) => {
     try {
-        db.query('SELECT * FROM time_relations', (err, results) => {
+        db.query('SELECT * from production_rate', (err, results) => {
             if (err) {
                 console.error('Error executing query: ', err.message);
                 return;

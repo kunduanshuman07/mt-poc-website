@@ -24,13 +24,13 @@ const centerTextPlugin = {
   },
 };
 
-const DoghnutChart = () => {
+const DoghnutChart = ({graphdata}) => {
   const data = {
     labels: ['Red', 'Blue', 'Yellow'],
     datasets: [
       {
         label: '# of Votes',
-        data: [300, 50, 100],
+        data: [graphdata?.current_rate, graphdata?.target_rate - graphdata?.current_rate, graphdata?.total_rate - graphdata?.current_rate-graphdata?.target_rate],
         backgroundColor: ['#12bfe6', 'gray', 'white'],
         borderWidth: 1,
       },

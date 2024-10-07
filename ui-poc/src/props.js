@@ -5,20 +5,19 @@ const headerTextfieldprops = [
         type: 1,
         selectionMenu: [
             {
-                value: 'USD',
-                label: '$',
+                value: 'USD'
             },
             {
-                value: 'EUR',
-                label: '€',
+                value: 'EUR'
             },
             {
-                value: 'BTC',
-                label: '฿',
+                value: 'BTC'
             },
             {
-                value: 'JPY',
-                label: '¥',
+                value: 'JPY'
+            },
+            {
+                value: 'ProdLine01'
             },
         ]
 
@@ -29,20 +28,19 @@ const headerTextfieldprops = [
         type: 1,
         selectionMenu: [
             {
-                value: 'USD',
-                label: '$',
+                value: 'USD'
             },
             {
-                value: 'EUR',
-                label: '€',
+                value: 'EUR'
             },
             {
-                value: 'BTC',
-                label: '฿',
+                value: 'BTC'
             },
             {
-                value: 'JPY',
-                label: '¥',
+                value: 'JPY'
+            },
+            {
+                value: 'All Units'
             },
         ]
 
@@ -53,20 +51,19 @@ const headerTextfieldprops = [
         type: 1,
         selectionMenu: [
             {
-                value: 'USD',
-                label: '$',
+                value: 'USD'
             },
             {
-                value: 'EUR',
-                label: '€',
+                value: 'EUR'
             },
             {
-                value: 'BTC',
-                label: '฿',
+                value: 'BTC'
             },
             {
-                value: 'JPY',
-                label: '¥',
+                value: 'JPY'
+            },
+            {
+                value: 'Yesterday'
             },
         ]
 

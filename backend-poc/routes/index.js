@@ -1,13 +1,23 @@
 import express from "express"
-import timeTempRoutes from "./time_temp.route.js"
+import timeRelationRoutes from "./time_temp.route.js"
+import keyPerformanceRoutes from "./key_performance.route.js"
+import productionRateRoutes from "./prod_rate.route.js"
 
 const router = express.Router();
 
 const defaultRoutes = [
     {
-        path: "/time-temp",
-        route: timeTempRoutes
-    }
+        path: "/time-relations",
+        route: timeRelationRoutes
+    },
+    {
+        path: "/production-rate",
+        route: productionRateRoutes
+    },
+    {
+        path: "/key-performance",
+        route: keyPerformanceRoutes
+    },
 ]
 
 defaultRoutes.forEach((routes) => {
