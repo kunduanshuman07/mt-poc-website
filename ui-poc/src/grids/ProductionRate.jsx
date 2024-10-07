@@ -9,7 +9,7 @@ const ProductionRate = () => {
   const BASE_URL = process.env.REACT_APP_API_URL;
   const { data, error, loading } = useFetchData(`${BASE_URL}/production-rate/fetch-prod-rate`)
   return (
-    <Wrapper loading={loading} error={error} skeletonHeight={"155px"} skeletonTitle={"Loading Production Rate"}>
+    <Wrapper loading={loading} error={error} skeletonHeight={"155px"} skeletonTitle={"Loading Production Rate"} noData={data?.length===0}>
       <div style={{
         padding: "5px 10px", border: "1px solid #d9d9d9", borderRadius: "10px", backgroundColor: "#f7f7f7", display: "flex", flexDirection: "column",
       }}>

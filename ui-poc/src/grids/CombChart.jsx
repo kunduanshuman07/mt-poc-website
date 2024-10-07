@@ -32,7 +32,7 @@ export default function CombChart() {
     fetchTimeTempData();
   }, [startDateFilter, endDateFilter, data])
   return (
-    <Wrapper error={error} loading={loading} skeletonHeight={"220px"} skeletonTitle={"Loading Trend over time"}>
+    <Wrapper error={error} loading={loading} skeletonHeight={"220px"} skeletonTitle={"Loading Trend over time"} noData={data?.length===0}>
       {timeStamps && temperatures && sensor && other && <LineChart
         series={[
           { data: temperatures, label: "Temperature", showMark: false },

@@ -12,7 +12,7 @@ const KeyPerformance = () => {
     const BASE_URL = process.env.REACT_APP_API_URL;
     const { data, error, loading } = useFetchData(`${BASE_URL}/key-performance/fetch-key-performance`)
     return (
-        <Wrapper loading={loading} error={error} skeletonHeight={"245px"} skeletonTitle={"Loading Key Performance Indicators"}>
+        <Wrapper loading={loading} error={error} skeletonHeight={"245px"} skeletonTitle={"Loading Key Performance Indicators"} noData={data?.length===0}>
             <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 8, md: 12 }} sx={{ border: "1px solid #d9d9d9", padding: "5px", borderRadius: "10px", backgroundColor: "#f7f7f7", display: "flex" }}>
                 <Grid size={{ xs: 1, sm: 8, md: 3 }} sx={{ display: "flex", flexDirection: "column", margin: "auto" }}>
                     <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "14px", marginBottom: "15px", textAlign: "center" }}>Key Performance Indicators</Typography>
