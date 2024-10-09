@@ -19,7 +19,7 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
                         sx={{
                             '& .MuiInputBase-root': {
                                 height: '30px',
-                                paddingTop: '4px', 
+                                paddingTop: '4px',
                                 paddingBottom: '4px',
                             },
                         }}
@@ -39,10 +39,10 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
                         sx={{
                             '& .MuiInputBase-root': {
                                 height: '30px',
-                                paddingTop: '4px', 
+                                paddingTop: '4px',
                                 paddingBottom: '4px',
                             },
-                            
+
                         }}
                     />
                 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Grid from '@mui/material/Grid2';
-import headerTextfieldprops from '../props'
+import {headerTextfieldprops} from '../props'
 import HeaderTextField from "../components/HeaderTextField"
 
 const Header = () => {

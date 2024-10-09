@@ -1,4 +1,7 @@
-const headerTextfieldprops = [
+
+
+
+export const headerTextfieldprops = [
     {
         title: "Select Area",
         values: "",
@@ -82,5 +85,20 @@ const headerTextfieldprops = [
     }
 ]
 
-
-export default headerTextfieldprops
+export const deviceFilter = [
+    {
+        value: '10.67.17.0'
+    },
+    {
+        value: 'EUR'
+    },
+    {
+        value: 'BTC'
+    },
+    {
+        value: 'JPY'
+    },
+    {
+        value: 'All Units'
+    },
+]
