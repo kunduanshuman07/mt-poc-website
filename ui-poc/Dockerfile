@@ -1,5 +1,5 @@
 # Use the official Node.js image for the build stage
-FROM node:14 AS build
+FROM node:20 AS build
 
 # Set the working directory inside the container
 WORKDIR /app

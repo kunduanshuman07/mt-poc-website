@@ -87,18 +87,15 @@ export const headerTextfieldprops = [
 
 export const deviceFilter = [
     {
-        value: '10.67.17.0'
+        value: '00:1A:2B:3C:4D:5E'
     },
     {
-        value: 'EUR'
+        value: '00:1A:2B:3C:4D:5F'
     },
     {
-        value: 'BTC'
+        value: '00:1A:2B:3C:4D:60'
     },
     {
-        value: 'JPY'
-    },
-    {
-        value: 'All Units'
-    },
+        value: '00:1A:2B:3C:4D:61'
+    }
 ]

@@ -21,11 +21,12 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
                                 height: '30px',
                                 paddingTop: '4px',
                                 paddingBottom: '4px',
+                                fontSize: "14px"
                             },
                         }}
                     >
                         {selectionData?.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
+                            <MenuItem key={option.value} value={option.value} sx={{fontSize: "14px"}}>
                                 {option.value}
                             </MenuItem>
                         ))}
@@ -41,6 +42,7 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
                                 height: '30px',
                                 paddingTop: '4px',
                                 paddingBottom: '4px',
+                                fontSize: "14px"
                             },
 
                         }}

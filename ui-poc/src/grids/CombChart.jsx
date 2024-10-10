@@ -6,12 +6,11 @@ import Wrapper from '../components/Wrapper';
 import { Box, MenuItem, TextField } from '@mui/material';
 import { deviceFilter } from "../props"
 
-
 export default function CombChart() {
   const BASE_URL = process.env.REACT_APP_API_URL;
   const { startDateFilter, endDateFilter} = useFilter();
   const [timeStamps, setTimeStamps] = React.useState([]);
-  const [device, setDevice] = React.useState('10.67.17.0');
+  const [device, setDevice] = React.useState('00:1A:2B:3C:4D:5E');
   const [temperatures, setTemperatures] = React.useState([]);
   const [sensor, setSensor] = React.useState([])
   const [other, setOther] = React.useState([])
@@ -21,12 +20,16 @@ export default function CombChart() {
       const startDate = startDateFilter ? new Date(startDateFilter) : null;
       const endDate = endDateFilter ? new Date(endDateFilter) : null;
       const filteredData = data?.filter(item => {
-        const [day, month, year] = item.time_stamp.split(" ")[0].split("-");
+        const [year, month, day] = item.time_stamp.split(" ")[0].split("-");
+        console.log(day, month, year);
+        const deviceData = item?.deviceId === device;
         const timePart = item.time_stamp.split(" ")[1];
+        console.log(timePart);
         const formattedDate = new Date(`${year}-${month}-${day}T${timePart}`);
         const afterStartDate = !startDate || formattedDate >= startDate;
         const beforeEndDate = !endDate || formattedDate <= endDate;
-        return afterStartDate && beforeEndDate;
+        console.log(startDateFilter, endDateFilter);
+        return afterStartDate && beforeEndDate && deviceData;
       });
       setTimeStamps(filteredData?.map(item => item.time_stamp.split(" ")[1]));
       setTemperatures(filteredData?.map(item => parseFloat(item.temperature)));
@@ -34,7 +37,7 @@ export default function CombChart() {
       setOther(filteredData?.map(item => item.other));
     };
     fetchTimeTempData();
-  }, [startDateFilter, endDateFilter, data])
+  }, [startDateFilter, endDateFilter, data, device])
   return (
     <Wrapper error={error} loading={loading} skeletonHeight={"220px"} skeletonTitle={"Loading Trend over time"} noData={data?.length === 0}>
       <Box sx={{ display: "flex", flexDirection: "column", border: "1px solid #d9d9d9", padding: "5px", borderRadius: "10px", }}>
@@ -43,7 +46,7 @@ export default function CombChart() {
             marginLeft: "auto",
             '& .MuiInputBase-root': {
               height: '20px',
-              width: "180px",
+              width: "150px",
               paddingTop: '4px',
               paddingBottom: '4px',
               fontSize: "10px"

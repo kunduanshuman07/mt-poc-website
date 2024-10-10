@@ -4,10 +4,11 @@ import { config } from "dotenv";
 config();
 
 const db = mysql.createConnection({
-    host: process.env.dbHostname,
-    user: process.env.user,
-    password: process.env.password,
-    database: process.env.database
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT || 3306
 });
 
 db.connect((err) => {

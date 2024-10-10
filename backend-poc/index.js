@@ -1,8 +1,7 @@
 import express, { json } from "express";
 import http from "http"
 import cors from "cors"
-
-import db from "./config/connectDb.js"
+import { config } from "dotenv"
 import router from "./routes/index.js"
 
 const app = express()
@@ -17,7 +16,9 @@ app.use(
 
 app.use(json());
 app.use('/poc', router)
+config();
+const PORT = process.env.PORT;
 
-server.listen(5000, () => {
-    console.log('Server running on port 5000');
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 })
