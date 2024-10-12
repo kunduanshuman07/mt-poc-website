@@ -13,7 +13,7 @@ const SmallProgressGrid = ({data}) => {
             </Grid>
             <Grid size={{ xs: 1, sm: 8, md: 4 }} sx={{margin: "auto"}}>
                 <Box sx={{padding: "0px 40px"}}>
-                    <ProgressCircular type={1} percentage={data?.key_performance[0]?.eff} category={"EFF"} />
+                    <ProgressCircular type={1} percentage={data?.key_performance[0]?.eff} category={"PER"} />
                 </Box>
             </Grid>
             <Grid size={{ xs: 1, sm: 8, md: 4 }} sx={{margin: "auto"}}>

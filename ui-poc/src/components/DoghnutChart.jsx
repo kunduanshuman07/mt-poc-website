@@ -15,7 +15,7 @@ const centerTextPlugin = {
     ctx.fillStyle = ' #1d3254';
     const fontSize = 1;
     ctx.font = `${fontSize}em sans-serif`;
-    const text = 'U/M';
+    const text = 'parts/min';
     const textX = Math.round((width - ctx.measureText(text).width) / 2);
     const textY = height; 
 
@@ -31,7 +31,7 @@ const DoghnutChart = ({graphdata}) => {
       {
         label: '# of Votes',
         data: [graphdata?.current_rate, graphdata?.target_rate - graphdata?.current_rate, graphdata?.total_rate - graphdata?.current_rate-graphdata?.target_rate],
-        backgroundColor: ['#12bfe6', 'gray', 'white'],
+        backgroundColor: ['#12bfe6', '#1d3254', '#d3d3d3'],
         borderWidth: 1,
       },
     ],

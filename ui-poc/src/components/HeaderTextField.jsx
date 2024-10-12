@@ -3,7 +3,7 @@ import React from 'react'
 import { useFilter } from "../context/FilterProvider"
 
 const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
-    const { startDateFilter, endDateFilter, setStartDateFilter, setEndDateFilter, setViewFilter, setUnitFilter, setAreaFilter } = useFilter();
+    const { startDateFilter, endDateFilter, setStartDateFilter, setEndDateFilter, setDeviceFilter, setViewFilter } = useFilter();
     return (
         <div>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -15,18 +15,18 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
                         fullWidth={false}
                         select
                         defaultValue={defaultValue}
-                        onChange={(e) => title === "Select Area" ? setAreaFilter(e.target.value) : title === "Select Unit" ? setUnitFilter(e.target.value) : setViewFilter(e.target.value)}
+                        onChange={(e) => title === "Select View" ? setViewFilter(e.target.value): setDeviceFilter(e.target.value)}
                         sx={{
                             '& .MuiInputBase-root': {
-                                height: '30px',
+                                height: '24px',
                                 paddingTop: '4px',
                                 paddingBottom: '4px',
-                                fontSize: "14px"
+                                fontSize: "12px"
                             },
                         }}
                     >
                         {selectionData?.map((option) => (
-                            <MenuItem key={option.value} value={option.value} sx={{fontSize: "14px"}}>
+                            <MenuItem key={option.value} value={option.value} sx={{fontSize: "12px"}}>
                                 {option.value}
                             </MenuItem>
                         ))}
@@ -39,10 +39,10 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
                         onChange={(e) => title === "Start Time" ? setStartDateFilter(e.target.value) : setEndDateFilter(e.target.value)}
                         sx={{
                             '& .MuiInputBase-root': {
-                                height: '30px',
+                                height: '24px',
                                 paddingTop: '4px',
                                 paddingBottom: '4px',
-                                fontSize: "14px"
+                                fontSize: "12px"
                             },
 
                         }}

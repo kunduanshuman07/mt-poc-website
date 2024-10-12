@@ -5,12 +5,10 @@ const FilterContext = createContext();
 export const FilterProvider = ({ children }) => {
     const [startDateFilter, setStartDateFilter] = useState();
     const [endDateFilter, setEndDateFilter] = useState();
-    const [areaFilter, setAreaFilter] = useState('ProdLine01');
-    const [unitFilter, setUnitFilter] = useState('All Units');
     const [viewFilter, setViewFilter] = useState('Yesterday');
-
+    const [deviceFilter, setDeviceFilter] = useState('00:1A:2B:3C:4D:5E')
     return (
-        <FilterContext.Provider value={{ startDateFilter, endDateFilter, setEndDateFilter, setStartDateFilter, areaFilter, setAreaFilter, unitFilter, setUnitFilter, viewFilter, setViewFilter }}>
+        <FilterContext.Provider value={{ startDateFilter, endDateFilter, setEndDateFilter, setStartDateFilter, deviceFilter, setDeviceFilter,viewFilter, setViewFilter }}>
             {children}
         </FilterContext.Provider>
     )

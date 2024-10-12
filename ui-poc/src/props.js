@@ -3,48 +3,22 @@
 
 export const headerTextfieldprops = [
     {
-        title: "Select Area",
+        title: "Select Device",
         values: "",
         type: 1,
         selectionMenu: [
             {
-                value: 'USD'
+                value: '00:1A:2B:3C:4D:5E'
             },
             {
-                value: 'EUR'
+                value: '00:1A:2B:3C:4D:5F'
             },
             {
-                value: 'BTC'
+                value: '00:1A:2B:3C:4D:60'
             },
             {
-                value: 'JPY'
-            },
-            {
-                value: 'ProdLine01'
-            },
-        ]
-
-    },
-    {
-        title: "Select Unit",
-        values: "",
-        type: 1,
-        selectionMenu: [
-            {
-                value: 'USD'
-            },
-            {
-                value: 'EUR'
-            },
-            {
-                value: 'BTC'
-            },
-            {
-                value: 'JPY'
-            },
-            {
-                value: 'All Units'
-            },
+                value: '00:1A:2B:3C:4D:61'
+            }
         ]
 
     },
@@ -54,16 +28,7 @@ export const headerTextfieldprops = [
         type: 1,
         selectionMenu: [
             {
-                value: 'USD'
-            },
-            {
-                value: 'EUR'
-            },
-            {
-                value: 'BTC'
-            },
-            {
-                value: 'JPY'
+                value: 'Today'
             },
             {
                 value: 'Yesterday'

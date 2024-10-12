@@ -3,74 +3,60 @@ import { LineChart } from '@mui/x-charts/LineChart';
 import { useFilter } from '../context/FilterProvider';
 import useFetchData from '../hooks/useFetchData';
 import Wrapper from '../components/Wrapper';
-import { Box, MenuItem, TextField } from '@mui/material';
-import { deviceFilter } from "../props"
+import { Box, Typography } from '@mui/material';
 
 export default function CombChart() {
   const BASE_URL = process.env.REACT_APP_API_URL;
-  const { startDateFilter, endDateFilter} = useFilter();
+  const { startDateFilter, endDateFilter, deviceFilter} = useFilter();
   const [timeStamps, setTimeStamps] = React.useState([]);
-  const [device, setDevice] = React.useState('00:1A:2B:3C:4D:5E');
-  const [temperatures, setTemperatures] = React.useState([]);
-  const [sensor, setSensor] = React.useState([])
-  const [other, setOther] = React.useState([])
-  const { data, error, loading } = useFetchData(`${BASE_URL}/time-relations/fetch-time-temp`)
+  const [zoneA, setZoneA] = React.useState([]);
+  const [zoneB, setZoneB] = React.useState([])
+  const [zoneC, setZoneC] = React.useState([])
+  const { data, error, loading } = useFetchData(`${BASE_URL}/time-relations/fetch-temp-status`)
   React.useEffect(() => {
     const fetchTimeTempData = async () => {
       const startDate = startDateFilter ? new Date(startDateFilter) : null;
       const endDate = endDateFilter ? new Date(endDateFilter) : null;
       const filteredData = data?.filter(item => {
-        const [year, month, day] = item.time_stamp.split(" ")[0].split("-");
-        console.log(day, month, year);
-        const deviceData = item?.deviceId === device;
-        const timePart = item.time_stamp.split(" ")[1];
-        console.log(timePart);
+        const [year, month, day] = item?.date_time.split(" ")[0].split("-");
+        const deviceData = item?.deviceId === deviceFilter;
+        const timePart = item?.date_time.split(" ")[1];
         const formattedDate = new Date(`${year}-${month}-${day}T${timePart}`);
         const afterStartDate = !startDate || formattedDate >= startDate;
         const beforeEndDate = !endDate || formattedDate <= endDate;
-        console.log(startDateFilter, endDateFilter);
         return afterStartDate && beforeEndDate && deviceData;
       });
-      setTimeStamps(filteredData?.map(item => item.time_stamp.split(" ")[1]));
-      setTemperatures(filteredData?.map(item => parseFloat(item.temperature)));
-      setSensor(filteredData?.map(item => item.sensor));
-      setOther(filteredData?.map(item => item.other));
+      setTimeStamps(filteredData?.map(item => item?.date_time.split(" ")[1]));
+      setZoneA(filteredData?.map(item => parseFloat(item.zoneA)));
+      setZoneB(filteredData?.map(item => item.zoneB));
+      setZoneC(filteredData?.map(item => item.zoneC));
     };
     fetchTimeTempData();
-  }, [startDateFilter, endDateFilter, data, device])
+  }, [startDateFilter, endDateFilter, data, deviceFilter])
   return (
-    <Wrapper error={error} loading={loading} skeletonHeight={"220px"} skeletonTitle={"Loading Trend over time"} noData={data?.length === 0}>
-      <Box sx={{ display: "flex", flexDirection: "column", border: "1px solid #d9d9d9", padding: "5px", borderRadius: "10px", }}>
-        <TextField
-          sx={{
-            marginLeft: "auto",
-            '& .MuiInputBase-root': {
-              height: '20px',
-              width: "150px",
-              paddingTop: '4px',
-              paddingBottom: '4px',
-              fontSize: "10px"
-            },
-          }}
-          onChange={(e) => setDevice(e.target.value)}
-          defaultValue={device}
-          select
-        >
-
-          {deviceFilter?.map((option) => (
-            <MenuItem key={option.value} value={option.value} sx={{
-              fontSize: "10px"
-            }}>
-              {option.value}
-            </MenuItem>
-          ))}
-        </TextField>
+    <Wrapper error={error} loading={loading} skeletonHeight={"250px"} skeletonTitle={"Loading Temperature Status"} noData={data?.length === 0}>
+      <Box sx={{ display: "flex", flexDirection: "column", padding: "8px" }}>
+        <Box sx={{ display: "flex" }}>
+          <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "14px", textAlign: "left", marginLeft: "10px" }}>Processing Temperature Status</Typography>
+        </Box>
         <Box>
-          {timeStamps && temperatures && sensor && other && <LineChart
+          {timeStamps && zoneA && zoneB && zoneC && <LineChart
             series={[
-              { data: temperatures, label: "Temperature", showMark: false },
-              { data: sensor, label: "Sensor", showMark: false },
-              { data: other, label: "Other", showMark: false, },
+              { 
+                data: Array(timeStamps.length).fill(20), 
+                showMark: false, 
+                color: 'red',
+                label: 'Max'
+              },
+              { data: zoneA, label: "ZoneA", showMark: true, curve: 'linear' },
+              { data: zoneB, label: "ZoneB", showMark: true, curve: 'linear' },
+              { data: zoneC, label: "ZoneC", showMark: true, curve: 'linear' },
+              { 
+                data: Array(timeStamps.length).fill(70), 
+                showMark: false, 
+                color: 'red',
+                label: 'Min'
+              },
             ]}
             xAxis={[{
               scaleType: "point", data: timeStamps, labelStyle: { fontSize: "10px" }, tickLabelStyle: {
@@ -78,9 +64,10 @@ export default function CombChart() {
                 textAnchor: 'bottom', style: { fontWeight: 'bold' }
               }, tickSize: 4
             }]}
-            yAxis={[{ tickLabelStyle: { fontSize: "12px" }, tickSize: 10 }]}
-            height={200}
+            yAxis={[{ tickLabelStyle: { fontSize: "12px" }, tickSize: 0, disableTicks: true, }]}
+            height={215}
             slotProps={{ legend: { labelStyle: { fontSize: "10px", fontWeight: "bold" }, itemMarkWidth: 8, itemMarkHeight: 8, itemGap: 20 } }}
+            grid={{horizontal: true, vertical: false}}
           />}
         </Box>
       </Box>
