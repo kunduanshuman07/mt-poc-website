@@ -7,7 +7,7 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue }) => {
     return (
         <div>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography variant='h6' style={{ fontSize: "12px", fontWeight: "bold", color: "#1d3254" }}>{title}</Typography>
+                <Typography variant='h6' style={{ fontSize: "10px", fontWeight: "bold", color: "#1d3254" }}>{title}</Typography>
                 {type === 1 ?
                     <TextField
                         type='text'
