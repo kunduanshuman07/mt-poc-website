@@ -10,7 +10,7 @@ const UserLayout = () => {
       <Title />
       <Header />
       <MiddleContent />
-      <BottomContent/>
+      <BottomContent />
     </div>
   )
 }

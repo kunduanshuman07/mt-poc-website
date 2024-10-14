@@ -13,9 +13,9 @@ const centerTextPlugin = {
     ctx.restore();
     ctx.textBaseline = 'middle';
     ctx.fillStyle = ' #1d3254';
-    const fontSize = 1;
+    const fontSize = 0.75;
     ctx.font = `${fontSize}em sans-serif`;
-    const text = 'parts/min';
+    const text = 'Parts / Min';
     const textX = Math.round((width - ctx.measureText(text).width) / 2);
     const textY = height; 
 
@@ -32,7 +32,7 @@ const DoghnutChart = ({graphdata}) => {
         label: '# of Votes',
         data: [graphdata?.current_rate, graphdata?.target_rate - graphdata?.current_rate, graphdata?.total_rate - graphdata?.current_rate-graphdata?.target_rate],
         backgroundColor: ['#12bfe6', '#1d3254', '#d3d3d3'],
-        borderWidth: 1,
+        borderWidth: 4,
       },
     ],
 
@@ -54,8 +54,12 @@ const DoghnutChart = ({graphdata}) => {
       Chart.unregister(centerTextPlugin); 
     };
   }, []);
-
-  return <Doughnut data={data} options={options} />;
+  
+  return <div
+  //  style={{boxShadow: "0 0 5px #12bfe6, 0 0 5px #00f9ff, 0 0 5px #12bfe6, 0 0 5px #00f9ff", borderRadius: "100px", padding: "10px "}}
+   >
+    <Doughnut data={data} options={options}/>
+  </div>;
 };
 
 export default DoghnutChart;

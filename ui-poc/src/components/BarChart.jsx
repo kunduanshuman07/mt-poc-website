@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const BarChart = ({ chartOptionsData }) => {
+const BarChart = ({ chartOptionsData, height }) => {
   const [chartOptions, setChartOptions] = useState({
     series: chartOptionsData?.series || [],
     options: {
@@ -13,7 +13,7 @@ const BarChart = ({ chartOptionsData }) => {
           show: false,
         },
       },
-      colors: ['#50a62f', '#c10101'],
+      colors: ['#99ff99', '#f72579'],
       plotOptions: {
         bar: {
           horizontal: true,
@@ -26,7 +26,7 @@ const BarChart = ({ chartOptionsData }) => {
         enabled: false,
       },
       xaxis: {
-        categories: ['Temp Zone A', 'Temp Zone B', 'Temp Zone C'],
+        categories: ['Motor Health', 'Temp Zone A', 'Temp Zone B', 'Temp Zone C'],
       },
       yaxis: {
         title: {
@@ -90,7 +90,7 @@ const BarChart = ({ chartOptionsData }) => {
             enabled: false,
           },
           xaxis: {
-            categories: ['Temp Zone A', 'Temp Zone B', 'Temp Zone C'],
+            categories: ['Motor Health', 'Temp Zone A', 'Temp Zone B', 'Temp Zone C'],
           },
           yaxis: {
             title: {
@@ -104,7 +104,7 @@ const BarChart = ({ chartOptionsData }) => {
             y: {
               formatter: function (val, opts) {
                 const seriesIndex = opts?.seriesIndex || 0;
-                const label = seriesIndex === 0 || seriesIndex === 2 ? 'Healthy' : 'Critical';
+                const label = seriesIndex % 2 === 0 ? 'Healthy' : 'Critical';
                 return `${label}`;
               },
               title: {
@@ -135,7 +135,7 @@ const BarChart = ({ chartOptionsData }) => {
         options={chartOptions?.options}
         series={chartOptions?.series}
         type="bar"
-        height={208}
+        height={height}
       />}
     </>
   );

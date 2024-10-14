@@ -16,7 +16,7 @@ const KeyPerformance = () => {
             <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 8, md: 12 }} sx={{ padding: "5px", display: "flex" }}>
                 <Grid size={{ xs: 1, sm: 8, md: 3 }} sx={{ display: "flex", flexDirection: "column", margin: "auto" }}>
                     <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "14px", marginBottom: "15px", textAlign: "center" }}>Key Performance Indicators</Typography>
-                    <Box sx={{ background: "white", padding: "10px", border: "1px solid #d9d9d9", borderRadius: "8px", margin: "auto" }}>
+                    <Box sx={{ background: "white", padding: "10px", margin: "auto" }}>
                         <ProgressCircular type={2} percentage={parseFloat((data?.availability[0]?.availability * data?.key_performance[0]?.eff * data?.key_performance[0]?.qua) / 10000).toFixed(0)} category={"OEE"} />
                     </Box>
                 </Grid>

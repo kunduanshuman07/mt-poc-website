@@ -6,20 +6,29 @@ const useFetchData = (url) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(url);
-        setData(response.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchData = async () => {
+    setLoading(true); 
+    try {
+      const response = await axios.get(url);
+      setData(response.data);
+      setError(null); 
+    } catch (err) {
+      setError(err);
+      setData(null); 
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
-  }, [url]);
+
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 300000); 
+
+    return () => clearInterval(intervalId);
+  }, [url]); 
 
   return { data, loading, error, setLoading };
 };

@@ -9,8 +9,18 @@ const CompSituation = () => {
   const { data, error, loading } = useFetchData(`${BASE_URL}/time-accounts/fetch-time-accounts`)
   return (
     <Wrapper error={error} loading={loading} skeletonHeight={"250px"} skeletonTitle={"Loading Motor Health"} noData={data?.length !== 0}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <Box sx={{ display: "flex", margin: "5px 0px 10px 0px", padding: "5px 10px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          // backgroundImage: "url('/motor.jpg')", 
+          // backgroundSize: "cover", 
+          // backgroundPosition: "center",
+          // backgroundRepeat: "no-repeat",
+          paddingBottom: "5px"
+        }}
+      >
+        <Box sx={{ display: "flex", margin: "5px 0px", padding: "5px 10px" }}>
           <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "14px", textAlign: "left" }}>Motor Health</Typography>
         </Box>
         <Criticality title={"Temp"} valueString={"74 °C"} value={74} compare={100} color={'success'} />
