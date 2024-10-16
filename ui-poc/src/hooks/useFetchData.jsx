@@ -7,7 +7,7 @@ const useFetchData = (url) => {
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
-    setLoading(true); 
+    // setLoading(true); 
     try {
       const response = await axios.get(url);
       setData(response.data);
@@ -25,7 +25,7 @@ const useFetchData = (url) => {
 
     const intervalId = setInterval(() => {
       fetchData();
-    }, 300000); 
+    }, 10000); 
 
     return () => clearInterval(intervalId);
   }, [url]); 

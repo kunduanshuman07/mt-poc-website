@@ -3,18 +3,19 @@ import React from 'react'
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const ProgressCircular = ({ percentage, category, type }) => {
-    return <div style={{ borderRadius: "100px", padding: "5px", boxShadow: type === 1 ? '' : '0 0 5px #12bfe6, 0 0 10px #00f9ff, 0 0 5px #12bfe6, 0 0 10px #00f9ff' }}>
+    return <div style={{ borderRadius: "100px", padding: "5px", boxShadow: type === 1 ? '' : '0 0 5px #176084, 0 0 10px #176084, 0 0 5px #176084, 0 0 10px #176084' }}>
         <CircularProgressbarWithChildren
             value={percentage}
             strokeWidth={type === 1 ? 12 : 16}
             styles={buildStyles({
                 strokeLinecap: 'butt',
                 pathTransitionDuration: 0.5,
-                pathColor: `#1d3254`,
+                trailColor: type === 2 ? `#ea7132` : '#f5ae9a',
                 textColor: '#f88',
-                trailColor: '#12bfe6',
+                pathColor: type === 2 ? '#176084' : '#8d9fb3',
                 backgroundColor: '',
             })}
         >
@@ -22,9 +23,14 @@ const ProgressCircular = ({ percentage, category, type }) => {
                 <Typography sx={{ fontWeight: "900", fontSize: type === 1 ? "12px" : "28px", margin: "0px auto" }}>{percentage}%</Typography>
                 <Box sx={{ display: "flex", marginTop: "2px" }}>
                     <Typography sx={{ fontSize: type === 1 ? "10px" : "18px", textAlign: "center", fontWeight: "bold" }}>{category}</Typography>
-                    <IconButton sx={{ width: "0px", height: "0px", margin: "auto 0px", marginLeft: "10px" }} size='small'>
-                        <ArrowDropUpIcon sx={{ fontSize: type === 1 ? "30px" : "50px", color: type===1?"green": "red" }} />
-                    </IconButton>
+                    {type === 1 ?
+                        <IconButton sx={{ width: "0px", height: "0px", margin: "auto 0px", marginLeft: "10px" }} size='small'>
+                            <ArrowDropUpIcon sx={{ fontSize: type === 1 ? "30px" : "50px", color: "green" }} />
+                        </IconButton> :
+                        <IconButton sx={{ width: "0px", height: "0px", margin: "auto 0px", marginLeft: "10px" }} size='small'>
+                            <ArrowDropDownIcon sx={{ fontSize: type === 1 ? "30px" : "50px", color: "red" }} />
+                        </IconButton>
+                    }
                 </Box>
             </Box>
         </CircularProgressbarWithChildren>

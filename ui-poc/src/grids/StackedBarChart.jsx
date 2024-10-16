@@ -68,6 +68,10 @@ export default function StackedBarChart() {
             <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Box sx={{ display: "flex", padding: "8px 8px 0px 8px" }}>
                     <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "14px", textAlign: "left" }}>Incident Log</Typography>
+                    <Box sx={{ width: "8px", height: "8px", background: "#176084", margin: "auto 0px auto auto" }} />
+                    <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "8px", margin: "auto 5px" }}>Healthy</Typography>
+                    <Box sx={{ width: "8px", height: "8px", background: "#ea7132", margin: "auto 5px" }} />
+                    <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "8px", margin: "auto 0px" }}>Critical</Typography>
                     <Button size='small' sx={{ textTransform: "none", height: "0px", fontSize: "10px", margin: "auto 0px auto auto", ":hover": { background: "white", color: "#12bfe6" } }} onClick={() => setOpenModal(true)}>Zoom</Button>
                 </Box>
                 <Box>

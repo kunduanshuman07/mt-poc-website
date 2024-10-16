@@ -2,7 +2,7 @@ import express from "express"
 import timeRelationRoutes from "./time_temp.route.js"
 import keyPerformanceRoutes from "./key_performance.route.js"
 import productionRateRoutes from "./prod_rate.route.js"
-import availabilityRoutes from "./availability.route.js"
+import motorHealthRoutes from "./motor_health.route.js"
 import timeAccountsRoutes from "./time_accounts.route.js"
 const router = express.Router();
 
@@ -24,8 +24,8 @@ const defaultRoutes = [
         route: timeAccountsRoutes
     },
     {
-        path: "/availability",
-        route: availabilityRoutes
+        path: "/motor-health",
+        route: motorHealthRoutes
     },
 ]
 

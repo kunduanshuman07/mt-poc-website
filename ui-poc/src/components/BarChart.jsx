@@ -13,7 +13,7 @@ const BarChart = ({ chartOptionsData, height }) => {
           show: false,
         },
       },
-      colors: ['#99ff99', '#f72579'],
+      colors: ['#176084', '#ea7132'],
       plotOptions: {
         bar: {
           horizontal: true,
@@ -77,7 +77,7 @@ const BarChart = ({ chartOptionsData, height }) => {
               show: false,
             },
           },
-          colors: ['#50a62f', '#c10101'],
+          colors: ['#176084', '#ea7132'],
           plotOptions: {
             bar: {
               horizontal: true,

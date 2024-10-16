@@ -31,7 +31,7 @@ const DoghnutChart = ({graphdata}) => {
       {
         label: '# of Votes',
         data: [graphdata?.current_rate, graphdata?.target_rate - graphdata?.current_rate, graphdata?.total_rate - graphdata?.current_rate-graphdata?.target_rate],
-        backgroundColor: ['#12bfe6', '#1d3254', '#d3d3d3'],
+        backgroundColor: ['#176084', '#ea7132', '#d3d3d3'],
         borderWidth: 4,
       },
     ],

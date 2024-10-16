@@ -1,8 +1,8 @@
 import db from "../config/connectDb.js"
 
-export const fetchAvailability = async(req,res) => {
+export const fetchMotorHealth = async (req, res) => {
     try {
-        db.query('SELECT * from availability', (err, results) => {
+        db.query('SELECT * from motor_health_view', (err, results) => {
             if (err) {
                 console.error('Error executing query: ', err.message);
                 return;

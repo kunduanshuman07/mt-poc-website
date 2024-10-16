@@ -27,14 +27,14 @@ const ProductionRate = () => {
                   <Typography sx={{ fontSize: "12px", color: "#1d3254", textAlign: "center", fontWeight: "bold" }}>Current Rate</Typography>
                   <Box sx={{ display: "flex", margin: "auto" }}>
                     <Typography sx={{ fontSize: "20px", fontWeight: "600", color: "#2c4c73", textAlign: "center" }}>{data?.[0]?.current_rate}</Typography>
-                    <Box sx={{ width: "8px", height: "8px", background: '#12bfe6', margin: "auto 5px" }} />
+                    <Box sx={{ width: "8px", height: "8px", background: '#176084', margin: "auto 5px" }} />
                   </Box>
                 </Grid>
                 <Grid size={{ xs: 1, sm: 8, md: 4 }} sx={{ display: "flex", flexDirection: "column", margin: "auto" }}>
                   <Typography sx={{ fontSize: "12px", color: "#1d3254", textAlign: "center", fontWeight: "bold" }}>Target Rate</Typography>
                   <Box sx={{ display: "flex", margin: "auto" }}>
                     <Typography sx={{ fontSize: "20px", fontWeight: "600", color: "#2c4c73", textAlign: "center" }}>{data?.[0]?.target_rate}</Typography>
-                    <Box sx={{ width: "8px", height: "8px", background: '#1d3254', margin: "auto 5px" }} />
+                    <Box sx={{ width: "8px", height: "8px", background: '#ea7132', margin: "auto 5px" }} />
                   </Box>
                 </Grid>
                 <Grid size={{ xs: 1, sm: 8, md: 4 }} sx={{ display: "flex", flexDirection: "column", margin: "auto" }}>

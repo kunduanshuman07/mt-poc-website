@@ -5,7 +5,7 @@ import HeaderTextField from "../components/HeaderTextField"
 
 const Header = () => {
   return (
-    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 4, md: 12 }} sx={{padding: "0px 10px", display: "flex", marginBottom: "5px", background: "#f5fbfc" }}>
+    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 4, md: 12 }} sx={{padding: "0px 10px", display: "flex", background: "#faf7f2" }}>
       {
         headerTextfieldprops.map((prop, index) => (
           <Grid key={index} size={{ xs: 2, sm: 4, md: prop.type === 1 || prop.type === 2 ? 2 : 6 }} sx={{ margin: "auto" }}>

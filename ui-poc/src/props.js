@@ -23,3 +23,15 @@ export const headerTextfieldprops = [
         type: 2
     },
 ]
+
+export const deviceProps = [
+    {
+        value: "192.168.0.16"
+    },
+    {
+        value: "192.168.0.17"
+    },
+    {
+        value: "192.168.0.18"
+    }
+]

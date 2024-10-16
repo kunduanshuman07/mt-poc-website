@@ -13,21 +13,21 @@ const GradientProgressBar = ({ actual, expected, target, total }) => {
                 <Box
                     sx={{
                         width: actual > expected ? `${newExpectedWidth}%` : "100%",
-                        background: 'linear-gradient(90deg, white, #12bfe6)',
+                        background: 'linear-gradient(90deg, white, #ea7132)',
                         height: "6px",
                     }}
                 />
                 <Box
                     sx={{
                         width: actual > expected ? "100%" : `${newExpectedWidth}%`,
-                        background: '#1d3254',
+                        background: '#176084',
                         height: "12px",
                     }}
                 />
                 <Box
                     sx={{
                         width: actual > expected ? `${newExpectedWidth}%` : "100%",
-                        background: 'linear-gradient(90deg, white, #12bfe6)',
+                        background: 'linear-gradient(90deg, white, #ea7132)',
                         height: "6px",
                     }}
                 />

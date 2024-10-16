@@ -1,35 +1,27 @@
 version: '3.8'
 
 services:
-  db:
-    image: mysql:8
-    ports:
-      - "3307:3306" 
-    environment:
-      MYSQL_ROOT_PASSWORD: 'Chef@coding7' 
-      MYSQL_DATABASE: 'poc'                
-
   backend:
     build:
-      
       context: ./backend-poc
       dockerfile: Dockerfile
     ports:
       - "5001:5000"
+    network_mode: host
     environment:
-      DB_HOSTNAME: 'db' 
-      DB_USER: 'root'
-      DB_PASSWORD: 'Chef@coding7'
-      DB_DATABASE: 'poc'
+      DB_HOST: 127.0.0.1
+      DB_USER: analytics_dev
+      DB_PASSWORD: analytics
+      DB_NAME: analytics
+      DB_PORT: 3306
+      PORT: 5000
     restart: on-failure
-    depends_on:
-      - db
 
   frontend:
     build:
       context: ./ui-poc
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "4000:80"
     depends_on:
       - backend
