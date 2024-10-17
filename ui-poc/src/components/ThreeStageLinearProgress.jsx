@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-const GradientProgressBar = ({ actual, expected, target, total }) => {
+const GradientProgressBar = ({ actual, expected, target }) => {
     const actualExpectedWidth = (actual / target) * 100;
     const expectedTargetWidth = (expected / target) * 100;
     const actionWidth = actual > expected ? actualExpectedWidth : expectedTargetWidth;

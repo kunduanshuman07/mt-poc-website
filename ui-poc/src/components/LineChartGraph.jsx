@@ -11,7 +11,7 @@ const LineChartGraph = ({ timeStamps, zoneA, zoneB, zoneC, height }) => {
                         data: Array(timeStamps.length).fill(20),
                         showMark: false,
                         color: 'red',
-                        label: 'Max'
+                        label: 'Min'
                     },
                     { data: zoneA, label: "ZoneA", showMark: false, },
                     { data: zoneB, label: "ZoneB", showMark: false, },
@@ -20,7 +20,7 @@ const LineChartGraph = ({ timeStamps, zoneA, zoneB, zoneC, height }) => {
                         data: Array(timeStamps.length).fill(70),
                         showMark: false,
                         color: 'red',
-                        label: 'Min'
+                        label: 'Max'
                     },
                 ]}
                 xAxis={[{

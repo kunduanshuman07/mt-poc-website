@@ -19,18 +19,25 @@ export default function CombChart() {
     const fetchTimeTempData = async () => {
       const startDate = startDateFilter ? new Date(startDateFilter) : null;
       const endDate = endDateFilter ? new Date(endDateFilter) : null;
+
       const filteredData = data?.filter(item => {
-        const [year, month, day] = item?.date_time.split(" ")[0].split("-");
-        const timePart = item?.date_time.split(" ")[1];
-        const formattedDate = new Date(`${year}-${month}-${day}T${timePart}`);
-        const afterStartDate = !startDate || formattedDate >= startDate;
-        const beforeEndDate = !endDate || formattedDate <= endDate;
+        const date = new Date(item.date_time * 1000);
+        const afterStartDate = !startDate || date >= startDate;
+        const beforeEndDate = !endDate || date <= endDate;
         return afterStartDate && beforeEndDate;
       });
-      setTimeStamps(filteredData?.map(item => item?.date_time.split(" ")[1]));
-      setZoneA(filteredData?.map(item => parseFloat(item.zoneA)));
+
+      setTimeStamps(filteredData?.map(item => {
+        const date = new Date(item.date_time * 1000);
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${hours}:${minutes}`;
+      }));
+
+      setZoneA(filteredData?.map(item => item.zoneA));
       setZoneB(filteredData?.map(item => item.zoneB));
       setZoneC(filteredData?.map(item => item.zoneC));
+
     };
     fetchTimeTempData();
   }, [startDateFilter, endDateFilter, data])
@@ -39,11 +46,11 @@ export default function CombChart() {
       <Box sx={{ display: "flex", flexDirection: "column", padding: "8px" }}>
         <Box sx={{ display: "flex" }}>
           <Typography sx={{ fontWeight: "600", color: "#1d3254", fontSize: "14px", textAlign: "left", marginLeft: "10px" }}>Processing Temperature Status</Typography>
-          <Button size='small' sx={{ textTransform: "none", height: "0px", fontSize: "10px", margin: "auto 0px auto auto", ":hover": {background: "white", color: "#12bfe6"} }} onClick={() => setOpenModal(true)}>Zoom</Button>
+          <Button size='small' sx={{ textTransform: "none", height: "0px", fontSize: "10px", margin: "auto 0px auto auto", ":hover": { background: "white", color: "#12bfe6" } }} onClick={() => setOpenModal(true)}>Zoom</Button>
         </Box>
-        <LineChartGraph timeStamps={timeStamps} zoneA={zoneA} zoneB={zoneB} zoneC={zoneC} height={215}/>
+        <LineChartGraph timeStamps={timeStamps} zoneA={zoneA} zoneB={zoneB} zoneC={zoneC} height={215} />
       </Box>
-      {openModal && <GraphDialog title={'Processing Temperature versus Time Graph'} open={openModal} setOpen={setOpenModal} children={<LineChartGraph timeStamps={timeStamps} zoneA={zoneA} zoneB={zoneB} zoneC={zoneC} height={400}/>} />}
+      {openModal && <GraphDialog title={'Processing Temperature versus Time Graph'} open={openModal} setOpen={setOpenModal} children={<LineChartGraph timeStamps={timeStamps} zoneA={zoneA} zoneB={zoneB} zoneC={zoneC} height={400} />} />}
     </Wrapper>
 
   );

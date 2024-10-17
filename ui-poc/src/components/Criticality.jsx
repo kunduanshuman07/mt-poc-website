@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid2"
 const Criticality = ({ title, valueString, value, compare, color }) => {
     const colorStrings = {
         "success": { string: "Healthy", color: "" },
-        "warning": { string: "Degradation Starts", color: "" },
+        "warning": { string: "Degradation Start", color: "" },
         "error": { string: "Critical", color: "#c90e1e" }
     }
     const boxShadowStyles = {
@@ -23,7 +23,7 @@ const Criticality = ({ title, valueString, value, compare, color }) => {
                 </Box>
             </Grid>
             <Grid size={{ xs: 2, sm: 8, md: 7 }} sx={{ display: "flex", flexDirection: "column", padding: "7px", margin: "auto" }}>
-                <LinearProgress sx={{ height: "12px", borderRadius: "2px", cursor: "pointer", }} variant='determinate' value={title === 'Vibration' ? value * 10 : value} color={color} />
+                <LinearProgress sx={{ height: "12px", borderRadius: "2px", cursor: "pointer", }} variant='determinate' value={value * 100 / compare} color={color} />
                 <Typography sx={{ textAlign: "center", fontSize: "12px", fontWeight: "bold", marginTop: "5px" }} color={color}>{colorStrings[color]["string"]}</Typography>
             </Grid>
         </Grid>

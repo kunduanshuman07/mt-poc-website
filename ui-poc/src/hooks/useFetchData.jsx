@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useFetchData = (url) => {
+  const BASE_URL = process.env.REACT_APP_API_URL;
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,10 +12,10 @@ const useFetchData = (url) => {
     try {
       const response = await axios.get(url);
       setData(response.data);
-      setError(null); 
+      setError(null);
     } catch (err) {
       setError(err);
-      setData(null); 
+      setData(null);
     } finally {
       setLoading(false);
     }
@@ -24,11 +25,13 @@ const useFetchData = (url) => {
     fetchData();
 
     const intervalId = setInterval(() => {
-      fetchData();
-    }, 10000); 
+      if (url === `${BASE_URL}/motor-health/fetch-motor-health`) {
+        fetchData();
+      }
+    }, 30000);
 
     return () => clearInterval(intervalId);
-  }, [url]); 
+  }, [url]);
 
   return { data, loading, error, setLoading };
 };
