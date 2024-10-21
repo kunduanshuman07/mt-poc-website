@@ -5,11 +5,11 @@ import { LoadingProvider } from './context/LoadingProvider'
 
 const App = () => {
   return (
-    <FilterProvider>
-      <LoadingProvider>
+    <LoadingProvider>
+      <FilterProvider>
         <UserLayout />
-      </LoadingProvider>
-    </FilterProvider>
+      </FilterProvider>
+    </LoadingProvider>
   )
 }
 

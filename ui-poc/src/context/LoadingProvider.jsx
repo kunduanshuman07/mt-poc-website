@@ -3,14 +3,13 @@ import React, { useContext, createContext, useState } from 'react'
 const LoadingContext = createContext();
 
 export const LoadingProvider = ({ children }) => {
-    const [middleLoading, setMiddleLoading] = useState(true);
-    const [bottomLoading, setBottomLoading] = useState(true);
+    const [pulseLoading, setPulseLoading] = useState(true);
 
     return (
-        <LoadingContext.Provider value={{ middleLoading, bottomLoading, setMiddleLoading, setBottomLoading }}>
+        <LoadingContext.Provider value={{ pulseLoading, setPulseLoading }}>
             {children}
         </LoadingContext.Provider>
     )
 }
 
-export const useLoading = () => useContext(LoadingContext);
+export const usePulseLoading = () => useContext(LoadingContext);

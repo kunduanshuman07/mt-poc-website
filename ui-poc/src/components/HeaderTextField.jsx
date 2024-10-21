@@ -7,6 +7,7 @@ const HeaderTextField = ({ title, selectionData, type, defaultValue, value }) =>
     const handleChange = (e) => {
         setViewFilter(e.target.value)
     }
+    console.log(viewFilter);
     return (
         <div>
             <Box sx={{ display: "flex", flexDirection: "column" }}>

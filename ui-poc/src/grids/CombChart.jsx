@@ -5,15 +5,18 @@ import Wrapper from '../components/Wrapper';
 import { Box, Button, Typography } from '@mui/material';
 import LineChartGraph from "../components/LineChartGraph"
 import GraphDialog from '../components/GraphDialog';
+import useViewFetchData from '../hooks/useViewFetchData';
 
 export default function CombChart() {
   const BASE_URL = process.env.REACT_APP_API_URL;
-  const { startDateFilter, endDateFilter } = useFilter();
+  const { startDateFilter, endDateFilter, viewFilter } = useFilter();
   const [timeStamps, setTimeStamps] = React.useState([]);
   const [zoneA, setZoneA] = React.useState([]);
   const [zoneB, setZoneB] = React.useState([])
   const [zoneC, setZoneC] = React.useState([])
-  const { data, error, loading } = useFetchData(`${BASE_URL}/time-relations/fetch-temp-status`)
+  const fetchData = useFetchData(`${BASE_URL}/time-relations/fetch-temp-status`);
+  const viewFetchData = useViewFetchData(`${BASE_URL}/time-relations/fetch-temp-status-${viewFilter}`);
+  const { data, error, loading } = viewFilter === "today" ? fetchData : viewFetchData;
   const [openModal, setOpenModal] = React.useState(false);
   React.useEffect(() => {
     const fetchTimeTempData = async () => {

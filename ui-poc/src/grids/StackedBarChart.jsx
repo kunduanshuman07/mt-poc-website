@@ -4,10 +4,15 @@ import BarChart from '../components/BarChart';
 import useFetchData from '../hooks/useFetchData';
 import Wrapper from '../components/Wrapper';
 import GraphDialog from '../components/GraphDialog';
+import useViewFetchData from '../hooks/useViewFetchData';
+import { useFilter } from '../context/FilterProvider';
 
 export default function StackedBarChart() {
+    const { viewFilter } = useFilter();
     const BASE_URL = process.env.REACT_APP_API_URL;
-    const { data, error, loading } = useFetchData(`${BASE_URL}/time-relations/fetch-temp-health`);
+    const fetchData = useFetchData(`${BASE_URL}/time-relations/fetch-temp-health`);
+    const viewFetchData = useViewFetchData(`${BASE_URL}/time-relations/fetch-temp-health-${viewFilter}`);
+    const { data, error, loading } = viewFilter === "today" ? fetchData : viewFetchData;
     const [chartOptions, setChartOptions] = React.useState({});
     const [openModal, setOpenModal] = React.useState(false);
     React.useEffect(() => {

@@ -15,7 +15,7 @@ const Criticality = ({ title, valueString, value, compare, color }) => {
     };
     return (
         <Grid container spacing={{ xs: 1, md: 0 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ borderRadius: "10px", margin: "9px", boxShadow: boxShadowStyles[color], display: "flex" }}>
-            <Grid size={{ xs: 1, sm: 8, md: 5 }} sx={{ display: "flex", padding: "5px", backgroundColor: "#fcf9f7", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px" }}>
+            <Grid size={{ xs: 1, sm: 8, md: 5 }} sx={{ display: "flex", padding: "5px", backgroundColor: "#f9f9f9", borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px" }}>
                 <img src={`/assets/${title}.svg`} alt={title} width={20} height={20} style={{ margin: "auto 0px" }} />
                 <Box sx={{ display: "flex", flexDirection: "column", marginLeft: "10px" }}>
                     <Typography sx={{ textTransform: "none", color: "#1d3254", fontSize: "10px", fontWeight: "bold", margin: "auto 0px" }}>{title}</Typography>

@@ -4,10 +4,15 @@ import DoghnutChart from '../components/DoghnutChart';
 import Grid from '@mui/material/Grid2';
 import useFetchData from '../hooks/useFetchData';
 import Wrapper from '../components/Wrapper';
+import { useFilter } from '../context/FilterProvider';
+import useViewFetchData from '../hooks/useViewFetchData';
 
 const ProductionRate = () => {
+  const { viewFilter } = useFilter();
   const BASE_URL = process.env.REACT_APP_API_URL;
-  const { data, error, loading } = useFetchData(`${BASE_URL}/production-rate/fetch-prod-rate`)
+  const fetchData = useFetchData(`${BASE_URL}/production-rate/fetch-prod-rate`);
+  const viewFetchData = useViewFetchData(`${BASE_URL}/production-rate/fetch-prod-rate-${viewFilter}`);
+  const { data, error, loading } = viewFilter === "today" ? fetchData : viewFetchData;
   return (
     <Wrapper loading={loading} error={error} skeletonHeight={"245px"} skeletonTitle={"Loading Production Rate"} noData={data?.length === 0}>
       <div style={{

@@ -7,7 +7,7 @@ import StackedBarChart from '../grids/StackedBarChart';
 
 const BottomContent = () => {
     return (
-        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ padding: "0px 10px", marginTop: "10px" }}>
+        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ padding: "0px 6px",  marginTop: "5px" }}>
             <Grid size={{ xs: 4, sm: 8, md: 3 }}>
                 <Card sx={{}}>
                     <CompSituation />
