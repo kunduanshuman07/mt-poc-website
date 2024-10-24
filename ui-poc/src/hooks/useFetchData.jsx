@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { usePulseLoading } from "../context/LoadingProvider"
+import { useFilter } from '../context/FilterProvider';
 
 const useFetchData = (url) => {
   const { setPulseLoading } = usePulseLoading();
+  const { refresh, interval } = useFilter();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const fetchData = async () => {
-    // setLoading(true);
-    setPulseLoading(true); 
+    setPulseLoading(true);
     try {
-      const response = await axios.get(url);
+      const updatedUrl = `${url}?intervalseconds=${interval}`;
+      const response = await axios.get(updatedUrl, interval);
       setData(response.data);
       setError(null);
     } catch (err) {
@@ -28,10 +30,10 @@ const useFetchData = (url) => {
 
     const intervalId = setInterval(() => {
       fetchData();
-    }, 30000);
+    }, refresh * 1000);
 
     return () => clearInterval(intervalId);
-  }, [url]);
+  }, [url, refresh, interval]);
 
   return { data, loading, error, setLoading };
 };

@@ -6,16 +6,14 @@ import SmallProgressGrid from '../components/SmallProgressGrid';
 import QuantityGridItem from '../components/QuantityGridItem';
 import ThreeStageLinearProgress from '../components/ThreeStageLinearProgress';
 import useFetchData from '../hooks/useFetchData';
-import useViewFetchData from '../hooks/useViewFetchData';
 import Wrapper from '../components/Wrapper';
-import { useFilter } from '../context/FilterProvider';
+// import { useFilter } from '../context/FilterProvider';
 
 const KeyPerformance = () => {
-    const { viewFilter } = useFilter();
+    // const { viewFilter } = useFilter();
     const BASE_URL = process.env.REACT_APP_API_URL;
-    const fetchData = useFetchData(`${BASE_URL}/key-performance/fetch-key-performance`);
-    const viewFetchData = useViewFetchData(`${BASE_URL}/key-performance/fetch-key-performance-${viewFilter}`);
-    const { data, error, loading } = viewFilter === "today" ? fetchData : viewFetchData;
+    const { data, error, loading } = useFetchData(`${BASE_URL}/key-performance/fetch-key-performance`);
+
     return (
         <Wrapper loading={loading} error={error} skeletonHeight={"245px"} skeletonTitle={"Loading Key Performance Indicators"} noData={data?.length === 0}>
             <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 2, sm: 8, md: 12 }} sx={{ padding: "5px", display: "flex" }}>

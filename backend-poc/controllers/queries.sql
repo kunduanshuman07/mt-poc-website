@@ -1,5 +1,14 @@
- Temperature Status
- 
- SELECT COALESCE(t1.date_time, t2.date_time, t3.date_time) AS date_time,        t1.zoneA,        t2.zoneB,        t3.zoneC FROM (          SELECT MEASURE_TIME AS date_time, electronic_temperature AS zoneA     FROM SENSOR_DATA_1     WHERE IP = '192.168.0.17'       AND CAST(MEASURE_TIME AS UNSIGNED) >= ${subtractValue} ) t1  LEFT JOIN (     SELECT MEASURE_TIME AS date_time, electronic_temperature AS zoneB     FROM SENSOR_DATA_1     WHERE IP = '192.168.0.16'       AND CAST(MEASURE_TIME AS UNSIGNED) >= ${subtractValue} ) t2 ON t1.date_time = t2.date_time
- LEFT JOIN (     SELECT MEASURE_TIME AS date_time, temperature_transmitter AS zoneC     FROM SENSOR_DATA_1     WHERE IP = '192.168.0.16'       AND CAST(MEASURE_TIME AS UNSIGNED) >= ${subtractValue} ) t3 ON t1.date_time = t3.date_time  UNION  SELECT COALESCE(t1.date_time, t2.date_time, t3.date_time) AS date_time,        t1.zoneA,        t2.zoneB,        t3.zoneC FROM (
-         SELECT MEASURE_TIME AS date_time, electronic_temperature AS zoneA     FROM SENSOR_DATA_1     WHERE IP = '192.168.0.17'       AND CAST(MEASURE_TIME AS UNSIGNED) >= ${subtractValue} ) t1 RIGHT JOIN (     SELECT MEASURE_TIME AS date_time, electronic_temperature AS zoneB     FROM SENSOR_DATA_1     WHERE IP = '192.168.0.16'       AND CAST(MEASURE_TIME AS UNSIGNED) >= ${subtractValue} ) t2 ON t1.date_time = t2.date_time  LEFT JOIN (     SELECT MEASURE_TIME AS date_time, temperature_transmitter AS zoneC     FROM SENSOR_DATA_1     WHERE IP = '192.168.0.16'       AND CAST(MEASURE_TIME AS UNSIGNED) >= ${subtractValue} ) t3 ON t2.date_time = t3.date_time;
+
+          SELECT MEASURE_TIME, electronic_temperature AS zoneA, NULL AS zoneB, NULL AS zoneC 
+          FROM SENSOR_DATA 
+          WHERE IP = '192.168.0.17' 
+            AND FROM_UNIXTIME(CAST(MEASURE_TIME AS UNSIGNED)) >= NOW() - INTERVAL 300 SECOND
+
+          UNION ALL
+
+          SELECT MEASURE_TIME, NULL AS zoneA, electronic_temperature AS zoneB, temperature_transmitter as zoneC 
+          FROM SENSOR_DATA 
+          WHERE IP = '192.168.0.16' 
+            AND FROM_UNIXTIME(CAST(MEASURE_TIME AS UNSIGNED)) >= NOW() - INTERVAL 300 SECOND
+
+          ORDER BY MEASURE_TIME;

@@ -1,37 +1,54 @@
 
+// export const deviceProps = [
+//     {
+//         value: "192.168.0.16"
+//     },
+//     {
+//         value: "192.168.0.17"
+//     },
+//     {
+//         value: "192.168.0.18"
+//     }
+// ]
 
-
-export const headerTextfieldprops = [
+export const refreshValues = [
     {
-        title: "Select View",
-        type: 3
+        value: 30,
+        label: "30 s"
     },
     {
-        title: "Please Select",
-        value: "",
-        type: 1,
-        selectionMenu: []
+        value: 60,
+        label: "1 m"
     },
     {
-        title: "Start Time",
-        value: "",
-        type: 2
-    },
-    {
-        title: "End Time",
-        value: "",
-        type: 2
-    },
+        value: 300,
+        label: "5 m"
+    }
 ]
 
-export const deviceProps = [
+export const intervalValues = [
     {
-        value: "192.168.0.16"
+        value: 60,
+        label: "1 m"
     },
     {
-        value: "192.168.0.17"
+        value: 300,
+        label: "5 m"
     },
     {
-        value: "192.168.0.18"
+        value: 1800,
+        label: "30 m"
+    },
+    {
+        value: 3600,
+        label: "1 h"
+    },
+    {
+        value: 14400,
+        label: "4 h"
+    },
+    {
+        value: 28800,
+        label: "8 h"
     }
 ]

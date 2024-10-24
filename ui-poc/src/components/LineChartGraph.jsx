@@ -8,17 +8,17 @@ const LineChartGraph = ({ timeStamps, zoneA, zoneB, zoneC, height }) => {
             {timeStamps && zoneA && zoneB && zoneC && <LineChart
                 series={[
                     {
-                        data: Array(timeStamps.length).fill(20),
-                        showMark: false,
+                        data: Array(timeStamps.length).fill(22),
+                        showMark: false, connectNulls: true,
                         color: 'red',
                         label: 'Min'
                     },
-                    { data: zoneA, label: "ZoneA", showMark: false, },
-                    { data: zoneB, label: "ZoneB", showMark: false, },
-                    { data: zoneC, label: "ZoneC", showMark: false, },
+                    { data: zoneA, label: "ZoneA", showMark: false, connectNulls: true, },
+                    { data: zoneB, label: "ZoneB", showMark: false, connectNulls: true, },
+                    { data: zoneC, label: "ZoneC", showMark: false, connectNulls: true, },
                     {
-                        data: Array(timeStamps.length).fill(70),
-                        showMark: false,
+                        data: Array(timeStamps.length).fill(30),
+                        showMark: false, connectNulls: true,
                         color: 'red',
                         label: 'Max'
                     },

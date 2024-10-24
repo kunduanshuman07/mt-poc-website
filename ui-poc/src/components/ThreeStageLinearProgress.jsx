@@ -42,17 +42,6 @@ const GradientProgressBar = ({ actual, expected, target }) => {
                     }}
                 />
             </Box>
-            {/* <Box sx={{ display: "flex", width: `${remainingWidth}%` }}>
-                <Box
-                    sx={{
-                        width: "100%",
-                        height: "12px",
-                        background: 'white',
-                        margin: "auto 0px",
-                    }}
-                />
-            </Box> */}
-
         </Box>
     );
 };
